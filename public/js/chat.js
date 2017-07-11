@@ -49,6 +49,16 @@ socket.on('newMessage', function (message) {
   scrollToBottom();
 });
 
+socket.on('updateUsersList', function(users){
+  var ol = jQuery('<ol></ol>');
+
+  users.forEach(function(user){
+    ol.append(jQuery('<li></li>').text(user));
+  });
+
+  jQuery('#users').html(ol);
+});
+
 socket.on('newLocationMessage', function(location){
 
   var formattedTime = moment(location.createdAt).format('h:mm a');
