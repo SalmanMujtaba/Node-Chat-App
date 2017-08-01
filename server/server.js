@@ -23,9 +23,9 @@ io.on('connection', (socket)=>{
     if(!isRealString(param.name) || !isRealString(param.room)){
       return callback('Name and room are required');
     }
-      io.to(param.room).emit('updateUsersList', )
+
       socket.join(param.room);
-      //remove users from any other rooms
+      //remove user from any other rooms
       users.removeUser(socket.id);
       //add the user into the current room
       users.addUser(socket.id, param.name, param.room);
